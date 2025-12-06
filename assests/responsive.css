@@ -23,7 +23,7 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, "Segoe UI", Tahoma, Arial, "Noto Kufi Arabic", sans-serif;
+  font-family: "Rubik", "Inter", system-ui, "Segoe UI", Tahoma, Arial, "Noto Kufi Arabic", sans-serif;
   line-height: 1.6;
   color: #111;
   background: #fff;
@@ -171,3 +171,711 @@ form .row {
 
 /* Optional LTR override for mixed content */
 .ltr { direction: ltr; text-align: left; }
+
+/* ===== Customers Page Responsive Styles ===== */
+@media (max-width: 996px) {
+  /* Remove sidebar margin on main content */
+  .contens {
+    margin-right: 0 !important;
+    padding: 15px !important;
+  }
+
+  /* Title wrapper adjustments */
+  .titl-wrappe {
+    margin-bottom: 15px;
+  }
+
+  .titl-wrappe .title {
+    font-size: 1.5rem;
+  }
+
+  /* Filters section - stack vertically */
+  .customers-filters {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .customers-filters .right-side,
+  .customers-filters .left-side {
+    width: 100%;
+  }
+
+  .customers-filters .left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .customers-filters .search-box {
+    width: 100%;
+  }
+
+  .customers-filters .search-box input {
+    width: 100%;
+  }
+
+  .customers-filters .filter-btn,
+  .customers-filters .export-btns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+  }
+
+  .customers-filters .export-btns {
+    gap: 8px;
+  }
+
+  /* Table container - enable horizontal scroll */
+  .customerss-table-box {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    position: relative;
+  }
+
+  /* Scroll indicator hint */
+  .customerss-table-box::after {
+    content: "← اسحب للتمرير →";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: #9ca3af;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* Custom scrollbar for table container */
+  .customerss-table-box::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .customerss-table-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .customerss-table-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .customerss-table-box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Table adjustments */
+  .customerss-tables {
+    min-width: 600px; /* Minimum width to maintain readability */
+  }
+
+  .customerss-tables thead {
+    background: #f9fafb;
+  }
+
+  .customerss-tables thead th {
+    padding: 12px 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .customerss-tables thead th:first-child {
+    padding-right: 15px;
+  }
+
+  .customerss-tables thead th .main-check {
+    margin-left: 8px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  .customerss-tables tbody td {
+    padding: 12px 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .customerss-tables tbody tr:hover {
+    background-color: #f9fafb;
+  }
+
+  .customerss-tables tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Hide less important columns on very small screens */
+  .customerss-tables th:nth-child(3),
+  .customerss-tables td:nth-child(3) {
+    display: none; /* Hide Address column */
+  }
+}
+
+@media (max-width: 768px) {
+  .contens {
+    padding: 12px !important;
+    margin-top: 70px; /* Account for topbar height */
+  }
+
+  .titl-wrappe .title {
+    font-size: 1.25rem;
+  }
+
+  .titl-wrappe p {
+    font-size: 0.9rem;
+  }
+
+  /* More compact filters */
+  .customers-filters {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* Table adjustments for mobile */
+  .customerss-tables {
+    min-width: 500px;
+    font-size: 12px;
+  }
+
+  .customerss-tables thead th {
+    padding: 10px 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .customerss-tables tbody td {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .customerss-tables tbody tr {
+    transition: background-color 0.2s ease;
+  }
+
+  /* Make checkboxes and icons more touch-friendly */
+  .customerss-tables input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  .customerss-tables .fa-eye,
+  .customerss-tables .fa-coins {
+    font-size: 14px;
+  }
+
+  /* User link adjustments */
+  .customerss-tables .user-link {
+    font-size: 13px;
+    display: inline-block;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .contens {
+    padding: 10px !important;
+  }
+
+  .titl-wrappe {
+    margin-bottom: 12px;
+  }
+
+  .titl-wrappe .title {
+    font-size: 1.1rem;
+  }
+
+  /* Convert table to card layout on very small screens */
+  .customerss-table-box {
+    padding: 0;
+    background: transparent;
+    overflow-x: visible;
+  }
+
+  .customerss-table-box::after {
+    display: none; /* Hide scroll indicator on card layout */
+  }
+
+  .customerss-tables,
+  .customerss-tables thead,
+  .customerss-tables tbody,
+  .customerss-tables th,
+  .customerss-tables td,
+  .customerss-tables tr {
+    display: block;
+  }
+
+  /* Hide table header on mobile */
+  .customerss-tables thead {
+    display: none;
+  }
+
+  /* Style table rows as cards */
+  .customerss-tables tbody tr {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  /* Style table cells as card items */
+  .customerss-tables tbody td {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #f3f4f6;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .customerss-tables tbody td:last-child {
+    border-bottom: none;
+  }
+
+  /* Add labels before content using data-label */
+  .customerss-tables tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+    font-size: 13px;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  /* First cell (customer name) special styling */
+  .customerss-tables tbody td:first-child {
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .customerss-tables tbody td:first-child::before {
+    display: none; /* Hide label for first cell */
+  }
+
+  .customerss-tables tbody td:first-child .row-check {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* Checkbox styling in cards */
+  .customerss-tables tbody td .row-check {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  /* Action cell styling */
+  .customerss-tables tbody td:last-child {
+    padding-top: 10px;
+    margin-top: 5px;
+    border-top: 1px solid #f3f4f6;
+    justify-content: space-between;
+  }
+
+  .customerss-tables tbody td:last-child::before {
+    content: attr(data-label);
+  }
+
+  .customerss-tables tbody td:last-child .fa-eye {
+    background: #f3f4f6;
+    padding: 8px;
+    border-radius: 8px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .customerss-tables tbody td:last-child .fa-eye:hover {
+    background: #e5e7eb;
+    color: #111827;
+  }
+
+  /* User link styling in cards */
+  .customerss-tables tbody td .user-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    max-width: none;
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+  }
+
+  /* Icons and content alignment */
+  .customerss-tables tbody td .fa-eye,
+  .customerss-tables tbody td .fa-coins {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+
+  .customerss-tables tbody td .blue {
+    color: #007bff;
+    font-weight: 500;
+  }
+
+  /* Adjust button text size */
+  .filter-btn,
+  .export-btns {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* Search box adjustments */
+  .customers-filters .search-box input {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* ===== Sidebar Submenu Responsive Styles ===== */
+@media (max-width: 996px) {
+  /* Ensure submenu works on mobile */
+  .has-submenu .submenu {
+    padding-right: 30px;
+  }
+
+  .submenu li {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .has-submenu .menu-item {
+    padding: 12px;
+  }
+
+  .has-submenu .submenu {
+    padding-right: 25px;
+    margin-top: 8px;
+  }
+
+  .submenu li {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .submenu li a {
+    font-size: 13px;
+  }
+}
+
+/* ===== Pagination Responsive Styles ===== */
+@media (max-width: 996px) {
+  .pagination {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pagination span {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 40px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 6px;
+    margin: 15px auto;
+    justify-content: center;
+  }
+
+  .pagination span {
+    padding: 6px 10px;
+    font-size: 13px;
+    min-width: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Pagination wrapper for better control */
+  .content .pagination,
+  main .pagination {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 0;
+    margin: 12px auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pagination {
+    gap: 4px;
+    justify-content: center;
+    min-width: min-content;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+  }
+
+  .pagination span {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 36px;
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  /* Custom scrollbar for pagination */
+  .pagination::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .pagination::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .pagination::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .pagination::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+/* ===== Services Page (خدمات التاجر) Responsive Styles ===== */
+@media (max-width: 996px) {
+  /* Content adjustments */
+  .content {
+    margin-right: 0 !important;
+    padding: 15px !important;
+    margin-top: 70px;
+  }
+
+  /* Services tabs bar */
+  .services-tabs-bar {
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    padding: 15px 20px !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    border-bottom: 1px solid #eee;
+  }
+
+  .services-tab-btn {
+    font-size: 15px;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin: 20px 0;
+    padding: 0 10px;
+  }
+
+  .title-wrapper .title {
+    font-size: 1.5rem;
+  }
+
+  .title-wrapper .title .sm {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+
+  /* Services grid */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+    row-gap: 30px;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 17px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+  }
+
+  .service-icon {
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 12px !important;
+  }
+
+  /* Services tabs bar */
+  .services-tabs-bar {
+    padding: 12px 15px !important;
+    gap: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-tabs-bar::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .services-tabs-bar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .services-tabs-bar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .services-tab-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+    flex-shrink: 0;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin: 15px 0;
+    padding: 0 5px;
+  }
+
+  .title-wrapper .title {
+    font-size: 1.25rem;
+  }
+
+  .title-wrapper .title .sm {
+    font-size: 0.85rem;
+  }
+
+  /* Services grid - single column on mobile */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    row-gap: 35px;
+    margin-top: 15px;
+    padding: 0 5px;
+  }
+
+  .service-card {
+    padding: 18px;
+    margin-bottom: 10px;
+  }
+
+  .service-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .service-icon {
+    font-size: 18px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .icon-box {
+    margin-bottom: 10px;
+  }
+
+  .icon-box i {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 10px !important;
+  }
+
+  /* Services tabs bar */
+  .services-tabs-bar {
+    padding: 10px 12px !important;
+    gap: 8px;
+  }
+
+  .services-tab-btn {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin: 12px 0;
+  }
+
+  .title-wrapper .title {
+    font-size: 1.1rem;
+  }
+
+  .title-wrapper .title .sm {
+    font-size: 0.8rem;
+  }
+
+  /* Services grid */
+  .services-grid {
+    gap: 18px;
+    row-gap: 30px;
+    margin-top: 12px;
+  }
+
+  .service-card {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+
+  .service-card h3 {
+    font-size: 15px;
+  }
+
+  .service-card p {
+    font-size: 12px;
+  }
+
+  .service-icon {
+    font-size: 16px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .icon-box i {
+    font-size: 20px;
+  }
+}

@@ -1,16 +1,41 @@
-document.querySelectorAll(".has-submenu .menu-item").forEach(item => {
-    item.addEventListener("click", () => {
-        let parent = item.parentElement;
-        parent.classList.toggle("open");
-        let submenu = parent.querySelector(".submenu");
-
-        if (parent.classList.contains("open")) {
-            submenu.style.display = "block";
-        } else {
-            submenu.style.display = "none";
+/* ===== SIDEBAR SUBMENU ===== */
+function initSubmenu() {
+    document.querySelectorAll(".has-submenu").forEach(submenuParent => {
+        const menuItem = submenuParent.querySelector(".menu-item");
+        if (!menuItem) return;
+        
+        menuItem.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle open class on parent
+            submenuParent.classList.toggle("open");
+            
+            // Close other submenus
+            document.querySelectorAll(".has-submenu").forEach(otherMenu => {
+                if (otherMenu !== submenuParent && otherMenu.classList.contains("open")) {
+                    otherMenu.classList.remove("open");
+                }
+            });
+        });
+        
+        // Prevent link navigation if href is #
+        const link = menuItem.querySelector("a");
+        if (link && link.getAttribute("href") === "#") {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
         }
     });
-});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSubmenu);
+} else {
+    initSubmenu();
+}
 
 /* ===== WEEKLY CHART ===== */
 const weeklyData = {
@@ -117,15 +142,101 @@ document.addEventListener("click", () => {
     if(rowMenu) rowMenu.style.display = "none";
 });
 
-/* ===== SIDEBAR SUBMENU ===== */
-document.querySelectorAll(".has-submenu .menu-item").forEach(item => {
-    item.addEventListener("click", () => {
-        const submenu = item.nextElementSibling;
-        if(submenu) {
-            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-        }
+/* ===== MOBILE SIDEBAR TOGGLE & OVERLAY ===== */
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+const body = document.body;
+const menuBtn = document.querySelector(".menu-btn");
 
-        const arrow = item.querySelector(".arrow i");
-        if(arrow) arrow.classList.toggle("rotate");
+if (menuToggle && sidebar) {
+    let isMobile = window.innerWidth <= 996;
+    let handleOutsideClick = null;
+
+    // Function to toggle sidebar
+    const toggleSidebar = (open) => {
+        if (open) {
+            sidebar.classList.add("sidebar-open");
+            body.classList.add("sidebar-open");
+            menuToggle.checked = true;
+        } else {
+            sidebar.classList.remove("sidebar-open");
+            body.classList.remove("sidebar-open");
+            menuToggle.checked = false;
+        }
+    };
+
+    // Toggle sidebar class and body class for overlay
+    menuToggle.addEventListener("change", () => {
+        toggleSidebar(menuToggle.checked);
     });
-});
+
+    // Close sidebar when clicking outside (on mobile)
+    handleOutsideClick = (e) => {
+        // If sidebar is open and click is outside sidebar and menu button
+        if (menuToggle.checked && 
+            !sidebar.contains(e.target) && 
+            !e.target.closest(".menu-btn") &&
+            !e.target.closest("#menuToggle") &&
+            !e.target.closest(".profile-avatar")) {
+            toggleSidebar(false);
+        }
+    };
+
+    // Close sidebar when clicking on overlay
+    const overlayClick = (e) => {
+        if (e.target === body.querySelector("::before") || 
+            (menuToggle.checked && e.target.classList.contains("sidebar-overlay"))) {
+            toggleSidebar(false);
+        }
+    };
+
+    // Handle window resize
+    const handleResize = () => {
+        const wasMobile = isMobile;
+        isMobile = window.innerWidth <= 996;
+
+        if (!isMobile && wasMobile) {
+            // Switched to desktop - reset sidebar
+            toggleSidebar(false);
+            if (handleOutsideClick) {
+                document.removeEventListener("click", handleOutsideClick);
+            }
+        } else if (isMobile && !wasMobile) {
+            // Switched to mobile - add listeners
+            document.addEventListener("click", handleOutsideClick);
+        }
+    };
+
+    // Initialize based on screen size
+    if (isMobile) {
+        document.addEventListener("click", handleOutsideClick);
+    }
+
+    // Add resize listener with debounce
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(handleResize, 150);
+    });
+
+    // Prevent body scroll when sidebar is open (mobile)
+    const observer = new MutationObserver(() => {
+        if (body.classList.contains("sidebar-open") && isMobile) {
+            body.style.overflow = "hidden";
+        } else {
+            body.style.overflow = "";
+        }
+    });
+
+    observer.observe(body, {
+        attributes: true,
+        attributeFilter: ["class"]
+    });
+
+    // Add smooth scroll behavior
+    if (menuBtn) {
+        menuBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
+    }
+}
