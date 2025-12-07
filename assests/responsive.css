@@ -879,3 +879,1812 @@ form .row {
     font-size: 20px;
   }
 }
+
+/* ===== Products Page (المنتجات) Responsive Styles ===== */
+@media (max-width: 996px) {
+  /* Content adjustments */
+  .content {
+    margin-right: 0 !important;
+    padding: 15px !important;
+    margin-top: 70px;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .title-wrapper .r h2.title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .title-wrapper .r p {
+    font-size: 0.9rem;
+    margin: 5px 0 0;
+  }
+
+  .new-order-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .left-controls,
+  .right-search {
+    width: 100%;
+  }
+
+  .left-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .left-controls .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .right-search .search-box {
+    width: 100%;
+  }
+
+  .right-search .search-box input {
+    width: 100%;
+  }
+
+  /* Products grid */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .product-card {
+    width: 100% !important;
+    padding: 15px;
+  }
+
+  .card-header {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .product-img {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .title-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .product-title {
+    font-size: 16px;
+  }
+
+  .category {
+    font-size: 13px;
+  }
+
+  .price {
+    font-size: 17px;
+  }
+
+  .desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .stock-row {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .actions .delete-btn,
+  .actions .edit-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  /* Pagination wrapper */
+  .pagination-wrapper {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin: 25px 0;
+    padding: 0 10px;
+  }
+
+  .pagination-info {
+    order: 2;
+  }
+
+  .pagination {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 12px !important;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin-bottom: 15px;
+    gap: 12px;
+  }
+
+  .title-wrapper .r h2.title {
+    font-size: 1.25rem;
+  }
+
+  .title-wrapper .r p {
+    font-size: 0.85rem;
+  }
+
+  .new-order-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .left-controls .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  /* Products grid - single column on mobile */
+  .products-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+    row-gap: 22px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .card-header {
+    gap: 10px;
+  }
+
+  .product-img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .product-title {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  .stock-row {
+    font-size: 12px;
+  }
+
+  .actions .delete-btn,
+  .actions .edit-btn {
+    padding: 9px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 10px !important;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  .title-wrapper .r h2.title {
+    font-size: 1.1rem;
+  }
+
+  .title-wrapper .r p {
+    font-size: 0.8rem;
+  }
+
+  .new-order-btn {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .left-controls .btn {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+
+  /* Products grid */
+  .products-grid {
+    gap: 15px;
+    row-gap: 20px;
+  }
+
+  .product-card {
+    padding: 12px;
+  }
+
+  .card-header {
+    gap: 8px;
+  }
+
+  .product-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .product-title {
+    font-size: 14px;
+  }
+
+  .category {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 15px;
+  }
+
+  .desc {
+    font-size: 11px;
+  }
+
+  .stock-row {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .actions .delete-btn,
+  .actions .edit-btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  /* Pagination */
+  .pagination-wrapper {
+    margin: 20px 0;
+    padding: 0 5px;
+  }
+
+  .pagination-info {
+    font-size: 13px;
+  }
+
+  .page-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Wallet Page (باقه المتجر/المحفظه) Responsive Styles ===== */
+@media (max-width: 996px) {
+  /* Content adjustments */
+  .content {
+    margin-right: 0 !important;
+    padding: 15px !important;
+    margin-top: 70px;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .title-wrapper .title {
+    font-size: 1.5rem;
+  }
+
+  .title-wrapper .title .sm {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+
+  .statement-btn {
+    width: 100%;
+    margin-right: 0 !important;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Panel */
+  .panel {
+    padding: 15px;
+  }
+
+  /* Top row */
+  .top-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Wallet container */
+  .wallet-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .card-box {
+    width: 100% !important;
+  }
+
+  .black-card {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    min-height: 180px;
+    padding: 20px;
+  }
+
+  .balance {
+    font-size: 24px;
+  }
+
+  .charge-btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  /* Withdraw box */
+  .withdraw-box {
+    width: 100% !important;
+  }
+
+  .withdraw-card {
+    padding: 20px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: calc(33.333% - 4px);
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .two-inputs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .two-inputs > div {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Invoices */
+  .invoices {
+    gap: 10px;
+  }
+
+  .invoice {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .invoice .left {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 12px !important;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin-bottom: 15px;
+  }
+
+  .title-wrapper .title {
+    font-size: 1.25rem;
+  }
+
+  .title-wrapper .title .sm {
+    font-size: 0.85rem;
+  }
+
+  .statement-btn {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  /* Panel */
+  .panel {
+    padding: 12px;
+  }
+
+  /* Wallet container */
+  .wallet-container {
+    padding: 12px;
+    gap: 15px;
+  }
+
+  .black-card {
+    padding: 18px;
+    min-height: 160px;
+  }
+
+  .balance-label {
+    margin-top: 80px;
+    font-size: 13px;
+  }
+
+  .balance {
+    font-size: 22px;
+  }
+
+  .charge-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* Withdraw card */
+  .withdraw-card {
+    padding: 18px;
+  }
+
+  .withdraw-card h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .tabs {
+    margin-bottom: 15px;
+  }
+
+  .tab {
+    font-size: 12px;
+    padding: 7px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .confirm-btn {
+    padding: 11px;
+    font-size: 15px;
+  }
+
+  /* Invoices */
+  .invoice {
+    padding: 10px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 5px 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 10px !important;
+  }
+
+  /* Title wrapper */
+  .title-wrapper {
+    margin-bottom: 12px;
+  }
+
+  .title-wrapper .title {
+    font-size: 1.1rem;
+  }
+
+  .title-wrapper .title .sm {
+    font-size: 0.8rem;
+  }
+
+  .statement-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  /* Panel */
+  .panel {
+    padding: 10px;
+  }
+
+  /* Wallet container */
+  .wallet-container {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .black-card {
+    padding: 15px;
+    min-height: 150px;
+    border-radius: 16px;
+  }
+
+  .circle {
+    width: 35px;
+    height: 35px;
+    left: 15px;
+    top: 15px;
+  }
+
+  .balance-label {
+    margin-top: 70px;
+    font-size: 12px;
+  }
+
+  .balance {
+    font-size: 20px;
+    margin: 5px 0 15px 0;
+  }
+
+  .charge-btn {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  /* Withdraw card */
+  .withdraw-card {
+    padding: 15px;
+  }
+
+  .withdraw-card h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .tabs {
+    padding: 4px;
+    margin-bottom: 12px;
+  }
+
+  .tab {
+    font-size: 11px;
+    padding: 6px 4px;
+    min-width: calc(33.333% - 3px);
+  }
+
+  label {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .checkbox-row {
+    font-size: 12px;
+  }
+
+  .confirm-btn {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  /* Invoices */
+  .invoices {
+    gap: 8px;
+  }
+
+  .invoice {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
+
+/* Package Popup Responsive */
+@media (max-width: 996px) {
+  .package-popup {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .package-popup .package-box {
+    width: 95%;
+    max-width: 600px;
+    max-height: 90vh;
+    height: auto;
+    min-height: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 25px 20px;
+  }
+
+  .close-popup {
+    top: 15px;
+    left: 15px;
+    font-size: 22px;
+    z-index: 10;
+  }
+
+  .popup-content {
+    flex-direction: column;
+    gap: 25px;
+    padding: 0;
+  }
+
+  .package-right {
+    width: 100% !important;
+    padding-right: 0;
+    padding: 0;
+  }
+
+  .package-right h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .current-plan {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .current-plan p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .current-plan h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .current-plan h2 .ss {
+    font-size: 14px;
+  }
+
+  .btn-upgrade,
+  .btn-renew,
+  .btn-cancel {
+    width: 100% !important;
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .btn-upgrade a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+
+  .payment-left {
+    width: 100% !important;
+    padding: 0;
+  }
+
+  .payment-left h4 {
+    padding-top: 0;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .payment-left h5 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .pay-item {
+    width: 100% !important;
+    padding: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pay-item input[type="checkbox"] {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .pay-item > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pay-item .title {
+    font-size: 14px;
+    margin: 0 0 4px 0;
+  }
+
+  .pay-item .small {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .manage {
+    margin-right: 0;
+    margin-left: auto;
+    padding: 6px 12px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f5f5f5;
+  }
+
+  .invoice-row {
+    width: 100% !important;
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  .invoice-title {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .invoice-title span {
+    font-weight: 600;
+  }
+
+  .invoice-row .small {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .package-popup {
+    padding: 5px;
+    padding-top: 15px;
+  }
+
+  .package-popup .package-box {
+    width: 98%;
+    max-height: 95vh;
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .close-popup {
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup-content {
+    gap: 20px;
+  }
+
+  .package-right h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .current-plan {
+    padding: 12px;
+  }
+
+  .current-plan p {
+    font-size: 13px;
+  }
+
+  .current-plan h2 {
+    font-size: 22px;
+  }
+
+  .current-plan h2 .ss {
+    font-size: 13px;
+  }
+
+  .btn-upgrade,
+  .btn-renew,
+  .btn-cancel {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .payment-left h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .payment-left h5 {
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .pay-item {
+    padding: 10px;
+  }
+
+  .pay-item .title {
+    font-size: 13px;
+  }
+
+  .pay-item .small {
+    font-size: 11px;
+  }
+
+  .manage {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .invoice-row {
+    padding: 10px;
+  }
+
+  .invoice-title {
+    font-size: 13px;
+  }
+
+  .invoice-row .small {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .package-popup {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .package-popup .package-box {
+    width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+    padding: 15px 12px;
+    overflow-y: auto;
+  }
+
+  .close-popup {
+    top: 8px;
+    left: 8px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .popup-content {
+    gap: 18px;
+  }
+
+  .package-right h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .current-plan {
+    padding: 10px;
+  }
+
+  .current-plan p {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .current-plan h2 {
+    font-size: 20px;
+    margin: 8px 0;
+  }
+
+  .current-plan h2 .ss {
+    font-size: 12px;
+  }
+
+  .btn-upgrade,
+  .btn-renew,
+  .btn-cancel {
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  .payment-left h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .payment-left h5 {
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .pay-item {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .pay-item .title {
+    font-size: 12px;
+  }
+
+  .pay-item .small {
+    font-size: 10px;
+  }
+
+  .manage {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .invoice-row {
+    padding: 8px;
+    margin-top: 10px;
+  }
+
+  .invoice-title {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .invoice-row .small {
+    font-size: 10px;
+  }
+}
+
+/* ===== Notifications Box Responsive Styles (All Pages) ===== */
+@media (max-width: 996px) {
+  .notifications-box {
+    width: 90% !important;
+    max-width: 320px;
+    right: 5px !important;
+    left: auto;
+    top: 50px !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .notifications-box h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .notifications-box .item {
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .notifications-box .more {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .notifications-box {
+    width: 95% !important;
+    max-width: 100%;
+    right: 2.5% !important;
+    left: 2.5% !important;
+    top: 55px !important;
+    max-height: 75vh;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .notifications-box h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .notifications-box .item {
+    padding: 9px 0;
+    font-size: 13px;
+  }
+
+  .notifications-box .more {
+    font-size: 13px;
+    padding: 9px;
+    margin-top: 10px;
+  }
+
+  /* Custom scrollbar for notifications */
+  .notifications-box::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .notifications-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .notifications-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .notifications-box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@media (max-width: 480px) {
+  .notifications-box {
+    width: 98% !important;
+    right: 1% !important;
+    left: 1% !important;
+    top: 60px !important;
+    max-height: 80vh;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .notifications-box h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+
+  .notifications-box .item {
+    padding: 8px 0;
+    font-size: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .notifications-box .item:last-child {
+    border-bottom: none;
+  }
+
+  .notifications-box .more {
+    font-size: 12px;
+    padding: 8px;
+    margin-top: 8px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+}
+
+/* Fix for notification checkbox on mobile */
+@media (max-width: 996px) {
+  /* Override the checked state positioning */
+  #showNotifications:checked ~ .notifications-box,
+  #showNotifications:checked + .notifications-box {
+    display: block !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    position: fixed !important;
+    right: 5px !important;
+    left: auto !important;
+    top: 50px !important;
+    z-index: 10000 !important;
+  }
+
+  /* Ensure notification icon is clickable */
+  label[for="showNotifications"] {
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+  }
+
+  /* Close notification when clicking outside on mobile */
+  .notifications-box::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  #showNotifications:checked ~ .notifications-box,
+  #showNotifications:checked + .notifications-box {
+    right: 2.5% !important;
+    left: 2.5% !important;
+    top: 55px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #showNotifications:checked ~ .notifications-box,
+  #showNotifications:checked + .notifications-box {
+    right: 1% !important;
+    left: 1% !important;
+    top: 60px !important;
+  }
+}
+
+/* ===== Index/Login Page (index.html) Responsive Styles ===== */
+@media (max-width: 996px) {
+  /* Body and HTML adjustments */
+  html,
+  body {
+    padding: 0 !important;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto !important;
+    min-height: 100vh;
+    max-height: none !important;
+  }
+
+  body {
+    position: relative;
+  }
+
+  /* Frames container */
+  .frames {
+    flex-direction: column;
+    height: auto !important;
+    min-height: 100vh;
+    max-height: none !important;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible !important;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  /* Hide left column on tablets and mobile */
+  .colleft {
+    display: none;
+  }
+
+  /* Right column - form area */
+  .colright {
+    flex: 0 0 100% !important;
+    width: 100%;
+    padding: 30px 20px 50px 20px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Brand logo */
+  .brands {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .brands img {
+    width: 130px;
+    margin-bottom: 15px;
+  }
+
+  /* Form container */
+  .contain {
+    width: 100% !important;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 0;
+    overflow: visible;
+    flex: 0 1 auto;
+    display: block;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+
+  .form-area {
+    width: 100%;
+    overflow: visible;
+    display: block;
+    min-height: auto;
+    height: auto;
+    max-height: none;
+  }
+
+  /* Ensure no height restrictions */
+  .form-area *,
+  .form-area .form-group,
+  .form-area .formgroup {
+    max-height: none !important;
+    height: auto !important;
+    display: block;
+    visibility: visible;
+  }
+
+  /* Title and subtitle */
+  .titl {
+    font-size: 22px;
+    margin-bottom: 6px;
+    margin-top: 0;
+  }
+
+  .subtitl {
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+
+  /* Form controls */
+  .formcontrol {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    height: 48px;
+    box-sizing: border-box;
+  }
+
+  /* Form groups */
+  .form-group,
+  .formgroup {
+    margin-bottom: 18px;
+  }
+
+  .form-group label,
+  .formgroup label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Phone number input group */
+  .formgroup .d-flex {
+    flex-direction: row;
+    gap: 8px;
+    align-items: stretch;
+    width: 100%;
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  .formgroup .d-flex .formcontrol {
+    flex: 1;
+    margin: 0 !important;
+    min-width: 0;
+    width: auto;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .formgroup .d-flex .form-select {
+    width: auto !important;
+    min-width: 100px;
+    max-width: 120px !important;
+    padding: 12px 10px;
+    font-size: 15px;
+    height: 48px;
+    flex-shrink: 0;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Checkbox */
+  .form-check-input {
+    margin-top: 0.3em;
+  }
+
+  .form-check-label {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Login button */
+  .btn-login {
+    height: 50px;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  .btn-login a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Signup link */
+  .signup {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Ensure all form elements are visible */
+  .form-group,
+  .formgroup {
+    width: 100%;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .form-group input,
+  .formgroup input,
+  .formgroup select {
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .formgroup .d-flex {
+    width: 100%;
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  .d-flex.align-items-center {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex !important;
+    visibility: visible !important;
+    flex-wrap: wrap;
+  }
+
+  .btn-login {
+    width: 100% !important;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    display: block !important;
+    visibility: visible !important;
+    position: relative;
+  }
+
+  .btn-login a {
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signup {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: block !important;
+    visibility: visible !important;
+    padding-bottom: 10px;
+  }
+
+  /* Ensure form container shows all content */
+  .contain .form-area > * {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Body adjustments */
+  html,
+  body {
+    padding: 0 !important;
+  }
+
+  /* Right column */
+  .colright {
+    padding: 25px 15px 40px 15px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Brand logo */
+  .brands img {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+
+  /* Form container */
+  .contain {
+    max-width: 100%;
+  }
+
+  /* Title and subtitle */
+  .titl {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .subtitl {
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* Form controls */
+  .formcontrol {
+    padding: 11px 12px;
+    font-size: 14px;
+    height: 46px;
+  }
+
+  /* Form groups */
+  .form-group,
+  .formgroup {
+    margin-bottom: 16px;
+  }
+
+  .form-group label,
+  .formgroup label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  /* Phone number input */
+  .formgroup .d-flex {
+    gap: 6px;
+    display: flex !important;
+    visibility: visible !important;
+    width: 100%;
+  }
+
+  .formgroup .d-flex .formcontrol {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .formgroup .d-flex .form-select {
+    min-width: 90px;
+    max-width: 110px !important;
+    padding: 11px 8px;
+    font-size: 14px;
+    height: 46px;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Checkbox */
+  .form-check-label {
+    font-size: 12px;
+  }
+
+  /* Login button */
+  .btn-login {
+    height: 48px;
+    font-size: 15px;
+    margin-top: 12px;
+  }
+
+  /* Signup link */
+  .signup {
+    font-size: 13px;
+    margin-top: 18px;
+    margin-bottom: 20px;
+  }
+
+  /* Ensure all form elements are visible */
+  .form-group,
+  .formgroup {
+    width: 100%;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .form-group input,
+  .formgroup input,
+  .formgroup select {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .d-flex.align-items-center {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  .btn-login {
+    width: 100%;
+    margin-bottom: 15px;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .signup {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Force all form content to be visible */
+  .contain > * {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .contain .titl,
+  .contain .subtitl {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Body adjustments */
+  html,
+  body {
+    padding: 0 !important;
+  }
+
+  /* Frames */
+  .frames {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  /* Right column */
+  .colright {
+    padding: 20px 12px 35px 12px;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Form container */
+  .contain {
+    width: 100% !important;
+    padding: 0;
+    flex: 0 1 auto;
+    min-height: 0;
+  }
+
+  /* Ensure all form elements are visible */
+  .form-group,
+  .formgroup {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .form-group:last-of-type,
+  .formgroup:last-of-type {
+    margin-bottom: 16px;
+  }
+
+  .d-flex.align-items-center {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .btn-login {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .signup {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+  }
+
+  /* Brand logo */
+  .brands {
+    margin-bottom: 15px;
+  }
+
+  .brands img {
+    width: 110px;
+    margin-bottom: 15px;
+  }
+
+  /* Title and subtitle */
+  .titl {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .subtitl {
+    font-size: 12px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+
+  /* Form controls */
+  .formcontrol {
+    padding: 10px 12px;
+    font-size: 14px;
+    height: 44px;
+    border-radius: 8px;
+  }
+
+  /* Form groups */
+  .form-group,
+  .formgroup {
+    margin-bottom: 14px;
+  }
+
+  .form-group label,
+  .formgroup label {
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  /* Phone number input */
+  .formgroup .d-flex {
+    gap: 5px;
+    display: flex !important;
+    visibility: visible !important;
+    width: 100%;
+  }
+
+  .formgroup .d-flex .formcontrol {
+    padding: 10px 12px;
+    flex: 1;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .formgroup .d-flex .form-select {
+    min-width: 85px;
+    max-width: 100px !important;
+    padding: 10px 6px;
+    font-size: 13px;
+    height: 44px;
+    border-radius: 8px;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Checkbox */
+  .form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.25em;
+  }
+
+  .form-check-label {
+    font-size: 11px;
+    line-height: 1.4;
+    padding-right: 5px;
+  }
+
+  .form-check-label a {
+    font-size: 11px;
+  }
+
+  /* Login button */
+  .btn-login {
+    height: 46px;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  /* Signup link */
+  .signup {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .signup a {
+    font-size: 12px;
+  }
+
+  /* Ensure all form elements are fully visible */
+  .contain .form-group,
+  .contain .formgroup,
+  .contain input,
+  .contain select,
+  .contain button,
+  .contain .d-flex,
+  .contain .signup {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .contain .d-flex {
+    display: flex !important;
+  }
+
+  /* Ensure form container has proper spacing */
+  .contain {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .colright {
+    padding-bottom: 35px;
+  }
+}

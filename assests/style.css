@@ -6495,10 +6495,13 @@ input {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.45);
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999999;
+}
+
+.package-popup.show {
+  display: flex;
 }
 
 .package-box {
