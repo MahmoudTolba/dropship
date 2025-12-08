@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>لوحة التحكم - التقارير</title>
+
+    <link rel="stylesheet" href="/assests/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        // Tailwind Configuration with Cairo Font
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Cairo', 'sans-serif', 'Rubik', 'Inter'] // Ensure compatibility
+                    },
+                    colors: {
+                        primary: '#155e75', // Dark Blue/Teal for bars
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Dashboard Styling Overrides */
+        /* .mai {
+            background-color: #f8fafc; /* Set main background for the dashboard look */
+            /* padding: 32px; Add padding to the main content area */
+        /* } */
+        
+        /* Chart Tooltip Customization */
+        .apexcharts-tooltip {
+            border-radius: 8px !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid #e2e8f0 !important;
+            font-family: 'Cairo', sans-serif !important;
+        }
+        .apexcharts-tooltip-title {
+            background: #f8fafc !important;
+            border-bottom: 1px solid #e2e8f0 !important;
+            font-family: 'Cairo', sans-serif !important;
+        }
+        .flatpickr-calendar {
+            font-family: 'Cairo', sans-serif !important;
+        }
+        
+        /* Fix for sidebar and main content visibility */
+        .a {
+            display: flex;
+        }
+        .mai {
+            flex-grow: 1;
+        }
+        
+        /* Ensure filter buttons use Cairo font */
+        .filter-btn {
+             font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <img src="/image/f9f831a3dca6f5fbcb89a69383cd9de01ac1e52b (1).png" class="logo" >
+
+    <div class="center-section">
+        <input type="text" placeholder="ابحث..." class="search-box">
+    </div>
+
+    <div class="icons">
+       <label for="showNotifications" class="icon"><i class="fa-regular fa-bell"></i></label>
+
+<input type="checkbox" id="showNotifications" hidden>
+
+<div class="notifications-box">
+    <h3>الإشعارات</h3>
+
+    <div class="item">تم شحن الرصيد– منذ يومين</div>
+    <div class="item">تم شحن الرصيد– منذ ٣ أيام</div>
+    <div class="item">تم شحن الرصيد– منذ ٣ أيام</div>
+    <div class="item">تم شحن الرصيد– منذ ٣ أيام</div>
+
+    <a class="more">عرض الكل</a>
+</div>
+
+        <i class="icon">
+             <a href="متجر الثيمات.html" class="iconss ">
+        <i class="fa-solid fa-gamepad"></i>
+    </a>
+        </i>
+        <i class="icon">  <a href="app.html" class="iconss ac">
+        <i class="fa-solid fa-border-all"></i>
+    </a></i>
+    </a></i>
+      <i class="icon">  <i class="fa-regular fa-moon"></i></i>
+        <i class="icon dark-toggle"></i>
+    </div>
+    <div class="store-wrapper">
+    <div class="store-select" id="storeBtn">
+    <img src="/image/121df8e4ff69af84b6cdf0af74303de3d79c0e0c.jpg">
+    <span class="flo">متجر زهور</span>
+    <span class="arrow">▼</span>
+</div>
+
+
+<div id="dropdownMenu" class="dropdown-menu">
+    <div class="profile-section">
+        <img src="/image/121df8e4ff69af84b6cdf0af74303de3d79c0e0c.jpg" class="profile-img" />
+        <div class="profile-info">
+            <h3>متجر زهور</h3>
+            <p>الباقة المجانية</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="visit-btn">زيارة المتجر</button>
+        <button class="settings-btn">الإعدادات ⚙️</button>
+    </div>
+
+    <ul class="menu-list">
+        <li>
+        <a href="باقه المتجر.html"> <i class="fa-solid fa-gem"></i>باقه المنتجات  </li>
+            </a>   <li>
+    <a href="المحفظه.html" class="menu-link">
+        <i class="fa-solid fa-wallet"></i> المحفظة والفواتير
+    </a>
+</li>
+        <li class="logout"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</li>
+    </ul>
+</div>
+</div>
+</div>
+
+<div class="a">
+
+    <main class="mai">
+
+        <div class="max-w-7xl mx-auto space-y-8">
+
+            <div class="space-y-6">
+                <div class="flex flex-col items-start space-y-1">
+                    <h1 class="text-2xl font-bold text-gray-900">التقارير</h1>
+                    <p class="text-sm text-gray-500">نظرة شاملة على أداء المتجر و إحصائياتك الرئيسية</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="w-full md:w-1/3 order-2 md:order-1 relative">
+                        <input type="text" placeholder="ابحث باسم التقرير..." 
+                                class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-all bg-white shadow-sm">
+                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full md:w-auto order-1 md:order-2">
+                        <button id="date-picker-btn" class="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 shadow-sm transition">
+                            <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            <span dir="ltr" class="date-range-text">06/24/2021 - 06/30/2021</span>
+                        </button>
+                        <button class="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 shadow-sm transition">
+                            <span>تصدير</span>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start">
+                        <span class="text-gray-600 font-medium">المبيعات</span>
+                        <div class="p-2 bg-blue-50 rounded-full text-blue-500"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    </div>
+                    <div class="flex justify-between items-end mt-4">
+                        <div class="flex items-baseline gap-1"><span class="text-2xl font-bold text-gray-900">542</span><span class="text-sm font-bold text-gray-500">ريال</span></div>
+                        <div class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-md text-xs font-bold"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg><span dir="ltr">25%</span></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start">
+                        <span class="text-gray-600 font-medium">الطلبات</span>
+                        <div class="p-2 bg-orange-50 rounded-full text-orange-500"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg></div>
+                    </div>
+                    <div class="flex justify-between items-end mt-4">
+                        <span class="text-2xl font-bold text-gray-900">542</span>
+                        <div class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-md text-xs font-bold"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg><span dir="ltr">10%</span></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start">
+                        <span class="text-gray-600 font-medium">العملاء</span>
+                        <div class="p-2 bg-fuchsia-50 rounded-full text-fuchsia-500"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div>
+                    </div>
+                    <div class="flex justify-between items-end mt-4">
+                        <span class="text-2xl font-bold text-gray-900">542</span>
+                        <div class="flex items-center gap-1 bg-red-100 text-red-700 px-2 py-1 rounded-md text-xs font-bold"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg><span dir="ltr">10%</span></div>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start">
+                        <span class="text-gray-600 font-medium">الزوار</span>
+                        <div class="p-2 bg-emerald-50 rounded-full text-emerald-500"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></div>
+                    </div>
+                    <div class="flex justify-between items-end mt-4">
+                        <span class="text-2xl font-bold text-gray-900">542</span>
+                        <div class="flex items-center gap-1 bg-red-100 text-red-700 px-2 py-1 rounded-md text-xs font-bold"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg><span dir="ltr">10%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <div>
+                            <h3 class="text-gray-600 font-medium mb-1">اجمالي المبيعات</h3>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-3xl font-bold text-gray-900" id="total-sales-display">4787</span>
+                                <span class="text-xl font-bold text-gray-900">ريال</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">خلال الفترة المحددة</p>
+                        </div>
+                        <div class="bg-gray-100 p-1 rounded-lg flex text-xs font-medium" id="sales-filters">
+                            <button onclick="updateSales('7days', this)" class="filter-btn px-3 py-1.5 text-gray-500 hover:bg-gray-200 rounded-md transition-all bg-gray-100">7 أيام</button>
+                            <button onclick="updateSales('1month', this)" class="filter-btn px-3 py-1.5 text-gray-500 hover:bg-gray-200 rounded-md transition-all bg-gray-100">شهر</button>
+                            <button onclick="updateSales('6months', this)" class="filter-btn active px-3 py-1.5 bg-white text-gray-800 shadow-sm rounded-md transition-all">6 شهور</button>
+                        </div>
+                        </div>
+                    <div id="salesChart" class="w-full h-72"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-gray-600 font-medium mb-1">اجمالي الطلبات</h3>
+                            <span class="text-3xl font-bold text-gray-900" id="total-orders-display">36</span>
+                        </div>
+                        <div class="bg-gray-100 p-1 rounded-lg flex text-xs font-medium" id="orders-filters">
+                            <button onclick="updateOrders('7days', this)" class="filter-btn px-3 py-1.5 text-gray-500 hover:bg-gray-200 rounded-md transition-all bg-gray-100">7 أيام</button>
+                            <button onclick="updateOrders('1month', this)" class="filter-btn px-3 py-1.5 text-gray-500 hover:bg-gray-200 rounded-md transition-all bg-gray-100">شهر</button>
+                             <button onclick="updateOrders('6months', this)" class="filter-btn active px-3 py-1.5 bg-white text-gray-800 shadow-sm rounded-md transition-all">6 شهور</button>
+                        </div>
+                        </div>
+                    
+                    <div class="flex-1 flex flex-col items-center justify-center min-h-[300px]">
+                        <div id="ordersChart" class="w-full flex justify-center"></div>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-3 gap-y-3 gap-x-2 text-xs text-gray-600 justify-items-center border-t border-gray-50 pt-4">
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span><span>ملغية</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#047857]"></span><span>تم الدفع</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span><span>تم الشحن</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-700"></span><span>بانتظار الدفع</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-fuchsia-400"></span><span>تم التوصيل</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span>مسترجعة</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex flex-col items-start mb-6">
+                        <h3 class="text-xl font-bold text-gray-900">أفضل العملاء</h3>
+                        <p class="text-sm text-gray-500">العملاء أصحاب أعلى قيمة شراء</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#1</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=1" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">سالم سلطان</p><p class="text-sm text-gray-500">758.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#2</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=2" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">ناصر محمد</p><p class="text-sm text-gray-500">658.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#3</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=3" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">سيف سلطان</p><p class="text-sm text-gray-500">558.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#4</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=4" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">محمد خالد</p><p class="text-sm text-gray-500">458.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#5</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=5" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">أحمد سالم</p><p class="text-sm text-gray-500">358.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#6</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=6" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">وليد عبدالله</p><p class="text-sm text-gray-500">258.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pb-3">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-bold text-blue-500 w-8 text-center">#7</span>
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img src="https://i.pravatar.cc/150?img=7" alt="صورة العميل" class="h-full w-full object-cover">
+                                    </div>
+                                    <div><p class="font-medium text-gray-800">قاسم سعيد</p><p class="text-sm text-gray-500">150.45 ريال</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex flex-col items-start mb-6">
+                        <h3 class="text-xl font-bold text-gray-900">أفضل 10 مدن</h3>
+                        <p class="text-sm text-gray-500">أعلى المدن في عدد الطلبات</p>
+                    </div>
+                    
+                    <div id="citiesChart" class="w-full h-96"></div>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
+                
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex flex-col items-start mb-6">
+                        <h3 class="text-xl font-bold text-gray-900">أفضل المنتجات مبيعاً</h3>
+                        <p class="text-sm text-gray-500">منتجات متجرك الأكثر مبيعاً</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-b-0 last:pb-0">
+                            <span class="text-gray-700 font-medium">سماعة ذكية رياضية</span>
+                            <span class="text-gray-900 font-bold">450 بيعة</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-b-0 last:pb-0">
+                            <span class="text-gray-700 font-medium">آيفون 16 cover</span>
+                            <span class="text-gray-900 font-bold">350 بيعة</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-b-0 last:pb-0">
+                            <span class="text-gray-700 font-medium">سماعات بلوتوث لاسلكية</span>
+                            <span class="text-gray-900 font-bold">330 بيعة</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-b-0 last:pb-0">
+                            <span class="text-gray-700 font-medium">حقيبة ظهر عصرية</span>
+                            <span class="text-gray-900 font-bold">300 بيعة</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-b-0 last:pb-0">
+                            <span class="text-gray-700 font-medium">شاحن محمول سريع</span>
+                            <span class="text-gray-900 font-bold">290 بيعة</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-b-0 last:pb-0">
+                            <span class="text-gray-700 font-medium">نظارة شمسية كلاسيكية</span>
+                            <span class="text-gray-900 font-bold">250 بيعة</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700 font-medium">سماعة ذكية رياضية</span>
+                            <span class="text-gray-900 font-bold">230 بيعة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
+                    <div class="flex flex-col items-start mb-6">
+                        <h3 class="text-xl font-bold text-gray-900">مصدر الزوار</h3>
+                        <p class="text-sm text-gray-500">قنوات وصول العملاء إلى متجرك</p>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col items-center justify-center min-h-[300px]">
+                        <div id="visitorsChart" class="w-full flex justify-center"></div>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-gray-600 justify-center border-t border-gray-50 pt-4">
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#fcd34d]"></span><span>Google</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]"></span><span>Youtube</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#f97316]"></span><span>Facebook</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#e879f9]"></span><span>Instagram</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#6b7280]"></span><span>Other</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#0ea5e9]"></span><span>Twitter</span></div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span><span>Telegram</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <input type="checkbox" id="menuToggle" hidden>
+    <label for="menuToggle" class="menu-btn">☰</label>
+    <aside class="sidebar" id="sidebar">
+        <ul>
+
+            <li class="section-title">عام</li>
+
+            <li class="active">
+                <a href="home.html">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span> الرئيسية
+                </a>
+            </li>
+
+            <li class="has-submenu ">
+        <div class="menu-item">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-house"></i></span> الطلبات
+            </a>
+            <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </div>
+
+        <ul class="submenu">
+            <li><a href="app.html">الطلبات</a></li>
+            <li><a href="القسائم.html">القسائم</a></li>
+        </ul>
+    </li>
+
+
+        <li class="has-submenu">
+        <div class="menu-item">
+
+                <span class="icon"><i class="fa-solid fa-shop"></i></span> المنتجات
+
+            <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </div>
+
+        <ul class="submenu">
+            <li><a href="المنتجات.html">المنتجات</a></li>
+            <li><a href=" القسائم.html">الأقسام</a></li>
+        </ul>
+    </li>
+
+            <li>
+                <a href="العملاء.html">
+                    <span class="icon"><i class="fa-solid fa-user-group"></i></span> العملاء
+                </a>
+            </li>
+
+            <li>
+                <a href="التقارير.html">
+                    <span class="icon"><i class="fa-solid fa-chart-simple"></i></span> التقارير
+                </a>
+            </li>
+
+            <li>
+                <a href="التقيمات.html">
+                    <span class="icon"><i class="fa-regular fa-star"></i></span> التقييمات
+                </a>
+            </li>
+
+            <li>
+                <a href="الصفحه التعريفيه.html">
+                    <span class="icon"><i class="fa-solid fa-book-open"></i></span> الصفحات التعريفية
+                </a>
+            </li>
+
+            <li class="section-title">أدوات مساعدة</li>
+
+            <li>
+                <a href="خدمات التاجر.html">
+                    <span class="icon">🧩</span> خدمات التاجر
+                </a>
+            </li>
+
+            <li>
+                <a href="تفعيل الشحن.html">
+                    <span class="icon"><i class="fa-solid fa-ship"></i></span> تفعيل الشحن
+                </a>
+            </li>
+
+            <li>
+                <a href="خدمات الذكاء الصناعي.html">
+                    <span class="icon">🤖</span> خدمات الذكاء الاصطناعي
+                </a>
+            </li>
+
+            <li class="section-title">الموردين</li>
+
+            <li>
+                <a href="الموردين.html">
+                    <span class="icon">📦</span> المستودعات السعودية
+                </a>
+            </li>
+
+            <li>
+                <a href="المنتجات الرقميه2.html">
+                    <span class="icon"><i class="fa-solid fa-computer"></i></span> المنتجات الرقمية
+                </a>
+            </li>
+
+        </ul>
+    </aside>
+
+</div>
+
+<script>
+    // --- 1. Date Picker Initialization ---
+    flatpickr("#date-picker-btn", {
+        mode: "range",
+        dateFormat: "m/d/Y",
+        defaultDate: ["06/24/2021", "06/30/2021"],
+        onChange: function(selectedDates, dateStr, instance) {
+            document.querySelector('.date-range-text').textContent = dateStr;
+        }
+    });
+
+    // --- 2. Data Mocks ---
+    const salesData = {
+        '6months': { data: [15000, 21000, 16000, 32000, 18000, 20000], categories: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'], total: 4787 },
+        '1month': { data: [12000, 15000, 11000, 18000], categories: ['أسبوع 1', 'أسبوع 2', 'أسبوع 3', 'أسبوع 4'], total: 56000 },
+        '7days': { data: [4000, 3200, 5000, 2000, 6000, 4500, 3000], categories: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'], total: 27700 }
+    };
+
+    const ordersData = {
+        '6months': { series: [10, 5, 8, 3, 2, 8], total: 36 },
+        '1month': { series: [15, 8, 12, 5, 4, 10], total: 54 },
+        '7days': { series: [5, 2, 3, 1, 1, 2], total: 14 }
+    };
+
+    const citiesData = {
+        series: [{ name: 'عدد الطلبات', data: [520, 430, 400, 390, 330, 300, 200, 100, 50, 10] }],
+        categories: ['أبها', 'الخبر', 'تبوك', 'بريدة', 'حائل', 'المدينة', 'مكة', 'الدمام', 'الرياض', 'جدة']
+    };
+    
+    const visitorsData = {
+        series: [25, 15, 10, 5, 30, 8, 7], // Mock percentages matching the visual size
+        labels: ['Google', 'Youtube', 'Facebook', 'Instagram', 'Other', 'Twitter', 'Telegram'],
+        colors: ['#fcd34d', '#ef4444', '#f97316', '#e879f9', '#6b7280', '#0ea5e9', '#10b981']
+    };
+
+    // --- 3. Chart Initialization ---
+
+    // Sales Bar Chart
+    const salesOptions = {
+        series: [{ name: 'المبيعات', data: salesData['6months'].data }],
+        chart: { type: 'bar', height: 280, fontFamily: 'Cairo, sans-serif', toolbar: { show: false } },
+        colors: ['#155e75'],
+        plotOptions: { bar: { borderRadius: 4, columnWidth: '40%' } },
+        dataLabels: { enabled: false },
+        xaxis: { categories: salesData['6months'].categories, axisBorder: { show: false }, axisTicks: { show: false }, labels: { style: { colors: '#9ca3af' } } },
+        yaxis: { labels: { formatter: (value) => { return value >= 1000 ? (value / 1000) + 'k' : value }, style: { colors: '#9ca3af' }, align: 'right' } },
+        grid: { borderColor: '#f3f4f6', strokeDashArray: 4 },
+        tooltip: { y: { formatter: (val) => { return val + " ريال" } } }
+    };
+    const salesChart = new ApexCharts(document.querySelector("#salesChart"), salesOptions);
+    salesChart.render();
+
+    // Orders Pie Chart
+    const ordersOptions = {
+        series: ordersData['6months'].series,
+        labels: ['تم الدفع', 'ملغية', 'تم الشحن', 'بانتظار الدفع', 'تم التوصيل', 'مسترجعة'],
+        chart: { type: 'donut', height: 260, fontFamily: 'Cairo, sans-serif' },
+        colors: ['#047857', '#ef4444', '#f97316', '#a16207', '#e879f9', '#facc15'],
+        plotOptions: { pie: { donut: { size: '65%', labels: { show: false } } } },
+        legend: { show: false },
+        dataLabels: { enabled: false },
+        tooltip: { enabled: true, y: { formatter: (val) => { return val + " طلبات" } } }
+    };
+    const ordersChart = new ApexCharts(document.querySelector("#ordersChart"), ordersOptions);
+    ordersChart.render();
+    
+    // Cities Horizontal Bar Chart
+    const citiesOptions = {
+        series: citiesData.series,
+        chart: { type: 'bar', height: 350, fontFamily: 'Cairo, sans-serif', toolbar: { show: false } },
+        colors: ['#1e6488'],
+        plotOptions: { bar: { horizontal: true, borderRadius: 4, barHeight: '50%' } },
+        dataLabels: { enabled: false },
+        xaxis: { categories: citiesData.categories, axisBorder: { show: false }, axisTicks: { show: false }, labels: { style: { colors: '#9ca3af' } } },
+        yaxis: { labels: { style: { colors: '#9ca3af' }, align: 'left' } },
+        grid: { borderColor: '#f3f4f6', strokeDashArray: 4, xaxis: { lines: { show: true } }, yaxis: { lines: { show: false } } },
+        tooltip: { x: { formatter: (val) => { return "المدينة: " + val } }, y: { formatter: (val) => { return val + " طلب" } } }
+    };
+    const citiesChart = new ApexCharts(document.querySelector("#citiesChart"), citiesOptions);
+    citiesChart.render();
+
+    // Visitor Source Pie Chart
+    const visitorsOptions = {
+        series: visitorsData.series,
+        labels: visitorsData.labels,
+        chart: { type: 'pie', height: 300, fontFamily: 'Cairo, sans-serif', toolbar: { show: false } },
+        colors: visitorsData.colors,
+        plotOptions: { pie: { donut: { size: '80%' } } },
+        dataLabels: { enabled: false },
+        legend: { show: false },
+        tooltip: { y: { formatter: (val) => { return val + "%" } } }
+    };
+    const visitorsChart = new ApexCharts(document.querySelector("#visitorsChart"), visitorsOptions);
+    visitorsChart.render();
+
+    // --- 4. Interactivity Functions ---
+
+    /**
+     * Helper to toggle button styles: Active button is White, Inactive is Gray.
+     * @param {string} containerId - The ID of the parent div containing the buttons.
+     * @param {HTMLElement} clickedBtn - The button element that was clicked.
+     */
+    function setActiveButton(containerId, clickedBtn) {
+        const container = document.getElementById(containerId);
+        const buttons = container.querySelectorAll('button');
+        
+        // 1. Set all buttons to Inactive (Gray)
+        buttons.forEach(btn => {
+            btn.classList.remove('active', 'bg-white', 'shadow-sm', 'text-gray-800');
+            btn.classList.add('bg-gray-100', 'text-gray-500', 'hover:bg-gray-200');
+        });
+        
+        // 2. Set the clicked button to Active (White)
+        clickedBtn.classList.remove('bg-gray-100', 'text-gray-500', 'hover:bg-gray-200');
+        clickedBtn.classList.add('active', 'bg-white', 'shadow-sm', 'text-gray-800');
+    }
+
+    // Update Sales Data Logic
+    window.updateSales = function(period, btn) {
+        setActiveButton('sales-filters', btn);
+        const data = salesData[period];
+
+        salesChart.updateOptions({ xaxis: { categories: data.categories } });
+        salesChart.updateSeries([{ data: data.data }]);
+        document.getElementById('total-sales-display').innerText = data.total;
+    }
+
+    // Update Orders Data Logic
+    window.updateOrders = function(period, btn) {
+        setActiveButton('orders-filters', btn);
+        const data = ordersData[period];
+
+        ordersChart.updateSeries(data.series);
+        document.getElementById('total-orders-display').innerText = data.total;
+    }
+
+    // Initial button activation (ensure default active button has correct styling)
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sales chart default is '6months'
+        const salesInitialActive = document.querySelector('#sales-filters button.active');
+        if (salesInitialActive) {
+             // Remove any non-active styles and apply active styles
+             salesInitialActive.classList.remove('text-gray-500', 'bg-gray-100');
+             salesInitialActive.classList.add('bg-white', 'shadow-sm', 'text-gray-800');
+        }
+
+        // Orders chart default is '6months'
+        const ordersInitialActive = document.querySelector('#orders-filters button.active');
+        if (ordersInitialActive) {
+             // Remove any non-active styles and apply active styles
+             ordersInitialActive.classList.remove('text-gray-500', 'bg-gray-100');
+             ordersInitialActive.classList.add('bg-white', 'shadow-sm', 'text-gray-800');
+        }
+    });
+
+</script>
+</body>
+</html>
